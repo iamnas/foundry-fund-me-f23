@@ -4,9 +4,11 @@ pragma solidity 0.8.19;
 import {AggregatorV3Interface} from "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 import {PriceConverter} from "./PriceConverter.sol";
 
-error FundMe__NotOwner();
 
 contract FundMe {
+
+    error FundMe__NotOwner();
+    
     using PriceConverter for uint256;
 
     mapping(address => uint256) private s_addressToAmountFunded;
@@ -91,7 +93,6 @@ contract FundMe {
         fund();
     }
 
-
     /**
      * view / Pure Function
     */
@@ -107,8 +108,6 @@ contract FundMe {
    function getOwner() external view returns(address) {
         return i_owner;
    }
-
-
 
 }
 
